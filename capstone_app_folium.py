@@ -1,11 +1,6 @@
 from flask import Flask, render_template, request, redirect
 import pandas as pd
 import numpy as np
-import plotly
-import plotly.offline as py_off
-from plotly.offline import iplot
-import plotly.graph_objs as go
-import geopandas as gpd
 import pickle
 import dill
 from sklearn import base
