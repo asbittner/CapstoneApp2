@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Measles Capstone Project</title>
+<!--
+
+Template 2089 Meteor
+
+http://www.tooplate.com/view/2089-meteor
+
+-->
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+                
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="static/css/fontAwesome.css">
+        <link rel="stylesheet" href="static/css/hero-slider.css">
+        <link rel="stylesheet" href="static/css/tooplate-style.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+        <script src="static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+    </head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand scroll-top">
+                       <!-- <div class="logo"></div> -->
+                    </a>
+                </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="scroll-top">Home</a></li>
+                        <li><a href="#" class="scroll-link" data-id="about">App</a></li>
+                        <li><a href="#" class="scroll-link" data-id="portfolio">Data</a></li>
+                        <li><a href="#" class="scroll-link" data-id="blog">Something?</a></li>
+                        <li><a href="#" class="scroll-link" data-id="contact">About Me</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.header-->
+
+
+    <section class="cd-hero">
+        <ul class="cd-hero-slider"> 
+
+            <li class="selected first-slide">
+                <div class="cd-full-width">
+                    <div class="tm-slide-content-div slide-caption">
+                        <span>Project by</span>
+                        <h2>Alyson Bittner</h2>
+                        <p>Predicting areas in New York State that are at high risk for cases of Measles.</p>
+                        <div class="primary-button">
+                            <a href="#" class="scroll-link" data-id="about">Discover More</a>
+                        </div>                           
+                    </div>                   
+                </div> <!-- .cd-full-width -->
+            </li>
+    </section> <!-- .cd-hero -->
+
+    <div id="model" class="page-section">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h4>Introduction</h4>
+                            <div class="line-dec"></div>
+                        <p> say some things about measles... </p>
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                 <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item second-service">
+                        <div class="icon"></div>
+                        <h4>Creative Ideas</h4>
+                        <p>Biodiesel schltz suculents phone cliche ramps snackwave coloring book tumeric poke, typewriter.</p>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item third-service">
+                        <div class="icon"></div>
+                        <h4>Good Profit</h4>
+                        <p>Biodiesel schltz suculents phone cliche ramps snackwave coloring book tumeric poke, typewriter.</p>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item fourth-service">
+                        <div class="icon"></div>
+                        <h4>Open To Public</h4>
+                        <p>Biodiesel schltz suculents phone cliche ramps snackwave coloring book tumeric poke, typewriter.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="what-we-do">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-3">
+                    <div class="left-text">
+                        <h4>The model<br>blah blah blah</h4>
+                        <p>more stuff...</p>
+                        
+                        {{ script|safe }}
+                        {{ div|safe }}
+                        <!--
+                        <ul>
+                            <li>
+                                <div class="white-button">
+                                    <a href="#" class="scroll-link" data-id="portfolio">Discover More</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="primary-button">
+                                    <a href="#">Purchase Now</a>
+                                </div>
+                            </li>
+                        </ul>
+                        -->
+                    </div>
+                </div>
+                
+                <div class="col-md-7">
+                    <div class="right-text">
+                        <div id="graph"></div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="blog" class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h4>Interactive Model</h4>
+                        <div class="line-dec"></div>
+                        <form id='userinfoform' method='post' action='stock_graph' > <!-- action is the URL you want to move to next-->
+    <p>
+   <font color="white">County:</font> <input type='text' name='county' />
+   </p>
+   <p>
+   <font color="white">Number of Unvaccinated People per 100,000:</font> <input type='text' name='unvax' />
+   </p>
+   <p>
+   <input type='submit' value='Submit' /> <!-- value is the text that will appear on the button. -->
+   </p>
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h4>About Me</h4>
+                        <div class="line-dec"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div>
+                        <img src="static/img/BittnerHeadshotD_smallersize.jpg" width = "200" height = "300" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                    <p><font color="white"> lalallala </font></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2017 Company Name 
+                        
+                        - Design: Tooplate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="static/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="static/js/vendor/bootstrap.min.js"></script>
+
+    <script src="static/js/plugins.js"></script>
+    <script src="static/js/main.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // navigation click actions 
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');         
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 50;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+    </script>
+
+
+</body>
+
+    <!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ 
+    <script type="text/javascript">
+         
+        var graphs = {{graphJSON | safe}};
+        
+        Plotly.plot('graph', graphs.data, graphs.layout, {paper_bgcolor: 'rgba(0,0,0,0)'});        
+ 
+    </script>
+</html>

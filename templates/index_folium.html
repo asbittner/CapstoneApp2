@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Measles Capstone Project</title>
+<!--
+
+Template 2089 Meteor
+
+http://www.tooplate.com/view/2089-meteor
+
+-->
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+                
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="static/css/fontAwesome.css">
+        <link rel="stylesheet" href="static/css/hero-slider.css">
+        <link rel="stylesheet" href="static/css/tooplate-style.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <script src="static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        
+        <script src="https://cdn.pydata.org/bokeh/release/bokeh-1.3.4.min.js"></script>
+        <script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.3.4.min.js"></script>
+        <script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-1.3.4.min.js"></script>
+
+    </head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand scroll-top">
+                       <!-- <div class="logo"></div> -->
+                    </a>
+                </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="scroll-top">Home</a></li>
+                        <li><a href="#" class="scroll-link" data-id="about">App</a></li>
+                        <li><a href="#" class="scroll-link" data-id="portfolio">Data</a></li>
+                        <li><a href="#" class="scroll-link" data-id="blog">Something?</a></li>
+                        <li><a href="#" class="scroll-link" data-id="contact">About Me</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.header-->
+
+
+    <section class="cd-hero">
+        <ul class="cd-hero-slider"> 
+
+            <li class="selected first-slide">
+                <div class="cd-full-width">
+                    <div class="tm-slide-content-div slide-caption">
+                        <span>Project by</span>
+                        <h2>Alyson Bittner</h2>
+                        <p>Identifying areas in New York State that are at high risk for cases of Measles.</p>
+                        <div class="primary-button">
+                            <a href="#" class="scroll-link" data-id="about">Discover More</a>
+                        </div>                           
+                    </div>                   
+                </div> <!-- .cd-full-width -->
+            </li>
+    </section> <!-- .cd-hero -->
+
+    <div id="model" class="page-section">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                        
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h4>Introduction</h4>
+                            <div class="line-dec"></div>
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                 <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item second-service">
+                        <div class="icon"></div>
+                        <h4>Then</h4>
+                        <p>Measles was declared eradicated from the United States in the year 2000.</p>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item third-service">
+                        <div class="icon"></div>
+                        <h4>Now</h4>
+                        <p>In 2019, there have been 1123 cases of measles in the United States.</p>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item fourth-service">
+                        <div class="icon"></div>
+                        <h4>Cause</h4>
+                        <p>Unvaccinated travelers brought measles from countries where measles were present</p>
+                    </div>
+                </div>                
+            
+            </div>
+        </div>
+    </div>
+
+    <div id="what-we-do">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-3">
+                    <div class="row">
+                        <h4>The model<br></h4>
+                        <p>is a classification model determines risk levels based on the number of cases of Measles and Meningitis per Capita.</p>
+                        <p align="center">
+
+                        {{ script|safe }}
+                        {{ div|safe }}
+                        </p>
+                        <!--
+                        <ul>
+                            <li>
+                                <div class="white-button">
+                                    <a href="#" class="scroll-link" data-id="portfolio">Discover More</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="primary-button">
+                                    <a href="#">Purchase Now</a>
+                                </div>
+                            </li>
+                        </ul>
+                        -->
+                    </div>
+                </div>
+                
+                <div class="col-md-7">
+                    <div class="right-text">
+                        <div id="graph"></div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="blog" class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h4>Interactive Model</h4>
+                        <div class="line-dec"></div>
+
+<form method='post' action = 'interactive_plot'>
+  <select name="county">
+    <option value="ALBANY">Albany</option>
+    <option value="ALLEGANY">Allegany</option>
+    <option value="BRONX">Bronx</option>
+    <option value="BROOME">Broome</option>
+    <option value="CATTARAUGUS">Cattaraugus</option>
+    <option value="CAYUGA">Cayuga/option>
+    <option value="CHAUTAUQUA">Chautaugua</option>
+    <option value="CHEMUNG">Chemung</option>
+    <option value="CHENANGO">Chenango</option>
+    <option value="CLINTON">Clinton</option>
+    <option value="COLUMBIA">Columbia</option>
+    <option value="CORTLAND">Cortland</option>
+    <option value="DELAWARE">Delaware</option>
+    <option value="DUTCHESS">Dutchess</option>
+    <option value="ERIE">Erie</option>
+    <option value="ESSEX">Essex</option>
+    <option value="FRANKLIN">Franklin</option>
+    <option value="FULTON">Fulton</option>
+    <option value="GENESEE">Genesee</option>
+    <option value="GREENE">Greene</option>
+    <option value="HAMILTON">Hamilton</option>
+    <option value="HERKIMER">Herkimer</option>
+    <option value="JEFFERSON">Jefferson</option>
+    <option value="KINGS">Kings</option>
+    <option value="LEWIS">Lewis</option>
+    <option value="LIVINGSTON">Livingston</option>
+    <option value="MADISON">Madison</option>
+    <option value="MONROE">Monroe</option>
+    <option value="MONTGOMERY">Montgomery</option>
+    <option value="NASSAU">Nassau</option>
+    <option value="NEW YORK">New York</option>
+    <option value="NIAGARA">Niagara</option>
+    <option value="ONEIDA">Oneida</option>
+    <option value="ONONDAGA">Onondaga</option>
+    <option value="ONTARIO">Ontario</option>
+    <option value="ORANGE">Orange</option>
+    <option value="ORLEANS">Orleans</option>
+    <option value="OSWEGO">Oswego</option>
+    <option value="OTSEGO">Otsego</option>
+    <option value="PUTNAM">Putnam</option>
+    <option value="QUEENS">Queens</option>
+    <option value="RENSSELAER">Rensselaer</option>
+    <option value="RICHMOND">Richmond</option>
+    <option value="ROCKLAND">Rockland</option>
+    <option value="SARATOGA">Saratoga</option>
+    <option value="SCHENECTADY">Schenectady</option>
+    <option value="SCHOHARIE">Schoharie</option>
+    <option value="SCHUYLER">Schuyler</option>
+    <option value="SENECA">Seneca</option>
+    <option value="ST. LAWRENCE">St. Lawrence</option>
+    <option value="STEUBEN">Steuben</option>
+    <option value="SUFFOLK">Suffolk</option>
+    <option value="SULLIVAN">Sullivan</option>
+    <option value="TIOGA">Tioga</option>
+    <option value="TOMPKINS">Tompkins</option>
+    <option value="ULSTER">Ulster</option>
+    <option value="WARREN">Warren</option>
+    <option value="WASHINGTON">Washington</option>
+    <option value="WAYNE">Wayne</option>
+    <option value="WESTCHESTER">Westchester</option>
+    <option value="WYOMING">Wyoming</option>
+    <option value="YATES">Yates</option>
+  </select>
+
+  <select name="unvax">
+    <option value="0">0</option>
+    <option value="10000">10,000</option>
+    <option value="20000">20,000</option>
+    <option value="30000">30,000</option>
+    <option value="40000">40,000</option>
+    <option value="50000">50,000</option>
+    <option value="60000">60,000</option>
+    <option value="70000">70,000</option>
+    <option value="80000">80,000</option>
+    <option value="90000">90,000</option>
+    <option value="100000">100,000</option>
+  </select>
+  <br><br>
+  <input type="submit" value = "submit">
+</form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        <p align="center">
+<!--         <iframe src="{{url_for('static', filename='htmls/map.html')}}" style="height: 600px; width:750px" frameborder="0" align="middle-right"> </iframe> -->
+        <iframe src="/static/htmls/map.html" style="height: 600px; width:750px" frameborder="0" align="middle-right"> </iframe>      
+        </p>
+        <p align="right">
+        {{ script2|safe }}
+        {{ div2|safe }}
+        </p>
+        </div>
+    </div>
+
+    <div id="contact" class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h4>About Me</h4>
+                        <div class="line-dec"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div>
+                        <img src="static/img/BittnerHeadshotD_smallersize.jpg" width = "140" height = "210" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                    <p><font color="white"> lalallala </font></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2017 Company Name 
+                        
+                        - Design: Tooplate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="static/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="static/js/vendor/bootstrap.min.js"></script>
+
+    <script src="static/js/plugins.js"></script>
+    <script src="static/js/main.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // navigation click actions 
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');         
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 50;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+    </script>
+
+</body>
+</html>
