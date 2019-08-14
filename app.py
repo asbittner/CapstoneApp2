@@ -135,7 +135,10 @@ class_data = pd.read_csv('static/class_data.csv')
 class_data['Pred'] = class_data['Risk Level']
 cutoff_plot = get_cutoff_plot(data_by_county)
 orig_plot = get_folium_plot(class_data)
-    
+county_js = dill.load(open('static/county_js_ny.pkd','rb'))
+data_adjust_vax = pd.read_csv('static/data_adjust_vax.csv')
+data_by_county = pd.read_csv('static/data.csv')    
+
 @app.route('/interactive_plot', methods = ['GET', 'POST'])
 def interactive_plot():
     if request.method == 'GET':
@@ -154,9 +157,6 @@ def interactive_plot():
     #return render_template('test.html', script = script, div = div, script2 = script2, div2 = div2)
 
 if __name__ == '__main__':
-    county_js = dill.load(open('static/county_js_ny.pkd','rb'))
-    data_adjust_vax = pd.read_csv('static/data_adjust_vax.csv')
-    data_by_county = pd.read_csv('static/data.csv')
     model = pickle.load(open('static/finalized_model.sav', 'rb'))
 
     new_df = pd.DataFrame(get_new_rows(data_adjust_vax), columns = list(data_adjust_vax.columns))
