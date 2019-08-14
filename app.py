@@ -130,7 +130,11 @@ def index():
     script2,div2 = bke.components(risk_map)
     return render_template('index_folium.html', script = script, div = div, script2 = script2, div2 = div2)
     #return render_template('test.html', script = script, div = div, script2 = script2, div2 = div2)
-
+    
+class_data = pd.read_csv('static/class_data.csv')
+class_data['Pred'] = class_data['Risk Level']
+cutoff_plot = get_cutoff_plot(data_by_county)
+orig_plot = get_folium_plot(class_data)
     
 @app.route('/interactive_plot', methods = ['GET', 'POST'])
 def interactive_plot():
@@ -155,14 +159,9 @@ if __name__ == '__main__':
     data_by_county = pd.read_csv('static/data.csv')
     model = pickle.load(open('static/finalized_model.sav', 'rb'))
 
-    class_data = pd.read_csv('static/class_data.csv')
-    class_data['Pred'] = class_data['Risk Level']
-
     new_df = pd.DataFrame(get_new_rows(data_adjust_vax), columns = list(data_adjust_vax.columns))
     new_df['Pred'] = model.predict(np.array(new_df[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']]))
 
-    cutoff_plot = get_cutoff_plot(data_by_county)
-    orig_plot = get_folium_plot(class_data)
     plot_dict = get_plot_dict(data_adjust_vax, model)
     #app.run(port=33507, debug = True)
     app.run()
