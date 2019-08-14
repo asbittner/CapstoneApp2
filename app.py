@@ -128,12 +128,13 @@ data_by_county = pd.read_csv('static/data.csv')
 cutoff_plot = get_cutoff_plot(data_by_county)
 orig_plot = get_folium_plot(class_data)
 
+model = pickle.load(open('static/finalized_model.sav', 'rb'))
+
 new_df = pd.DataFrame(get_new_rows(data_adjust_vax), columns = list(data_adjust_vax.columns))
 new_df['Pred'] = model.predict(np.array(new_df[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']]))
 
 plot_dict = get_plot_dict(data_adjust_vax, model)
 
-model = pickle.load(open('static/finalized_model.sav', 'rb'))
 folium_map = orig_plot
 folium_map.save('static/htmls/map.html')
 cutoff_plot = get_cutoff_plot(data_by_county)
