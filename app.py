@@ -139,7 +139,7 @@ def index():
     plot_dict = get_plot_dict(data_adjust_vax, model)
     
     
-    
+    model = pickle.load(open('static/finalized_model.sav', 'rb'))
     folium_map = orig_plot
     folium_map.save('static/htmls/map.html')
     cutoff_plot = get_cutoff_plot(data_by_county)
@@ -167,6 +167,5 @@ def interactive_plot():
     #return render_template('test.html', script = script, div = div, script2 = script2, div2 = div2)
 
 if __name__ == '__main__':
-    model = pickle.load(open('static/finalized_model.sav', 'rb'))
     #app.run(port=33507, debug = True)
     app.run()
