@@ -8,12 +8,6 @@ from sklearn import base
 import bokeh.plotting as bk
 import bokeh.embed as bke
 import folium
-
-
-#MAPBOX_APIKEY = 'pk.eyJ1IjoiYWx5Yml0dCIsImEiOiJjanlodGRzaGQwMzk4M2RwMHBnbG91bjk0In0.PbpJZgQlO_2Ce1JS-fXIKw'
-    
-#with open ('/Users/Aly/gz_2010_us_050_00_20m.json', encoding = "ISO-8859-1") as fr:
-#    county_js = json.load(fr)
     
 county_js = dill.load(open('static/county_js_ny.pkd','rb'))
 data_adjust_vax = pd.read_csv('static/data_adjust_vax.csv')
@@ -172,5 +166,5 @@ def interactive_plot():
     #return render_template('test.html', script = script, div = div, script2 = script2, div2 = div2)
 
 if __name__ == '__main__':
-    app.run(port=33507, debug = True)
-    #app.run()
+    #app.run(port=33507, debug = True)
+    app.run()
