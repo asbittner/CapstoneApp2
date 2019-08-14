@@ -95,6 +95,7 @@ def get_plot_dict(data, model):
             county_plots[county][i] = get_folium_plot(df)
             
     return county_plots
+
     
 class stack_estimators(base.BaseEstimator, base.TransformerMixin):
     
@@ -122,6 +123,24 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    class_data = pd.read_csv('static/class_data.csv')
+    class_data['Pred'] = class_data['Risk Level']
+    data_adjust_vax = pd.read_csv('static/data_adjust_vax.csv')
+    data_by_county = pd.read_csv('static/data.csv')
+
+    county_js = dill.load(open('static/county_js_ny.pkd','rb'))
+    cutoff_plot = get_cutoff_plot(data_by_county)
+    orig_plot = get_folium_plot(class_data)
+
+    model = pickle.load(open('static/finalized_model.sav', 'rb'))
+
+    new_df = pd.DataFrame(get_new_rows(data_adjust_vax), columns = list(data_adjust_vax.columns))
+    new_df['Pred'] = model.predict(np.array(new_df[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']]))
+
+    plot_dict = get_plot_dict(data_adjust_vax, model)
+    
+    
+    
     folium_map = orig_plot
     folium_map.save('static/htmls/map.html')
     cutoff_plot = get_cutoff_plot(data_by_county)
@@ -130,22 +149,6 @@ def index():
     script2,div2 = bke.components(risk_map)
     return render_template('index_folium.html', script = script, div = div, script2 = script2, div2 = div2)
     #return render_template('test.html', script = script, div = div, script2 = script2, div2 = div2)
-    
-class_data = pd.read_csv('static/class_data.csv')
-class_data['Pred'] = class_data['Risk Level']
-data_adjust_vax = pd.read_csv('static/data_adjust_vax.csv')
-data_by_county = pd.read_csv('static/data.csv')
-
-county_js = dill.load(open('static/county_js_ny.pkd','rb'))
-cutoff_plot = get_cutoff_plot(data_by_county)
-orig_plot = get_folium_plot(class_data)
-  
-model = pickle.load(open('static/finalized_model.sav', 'rb'))
-
-new_df = pd.DataFrame(get_new_rows(data_adjust_vax), columns = list(data_adjust_vax.columns))
-new_df['Pred'] = model.predict(np.array(new_df[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']]))
-
-plot_dict = get_plot_dict(data_adjust_vax, model)
 
 @app.route('/interactive_plot', methods = ['GET', 'POST'])
 def interactive_plot():
