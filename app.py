@@ -55,6 +55,8 @@ def get_risk_plot(county):
 
 def get_folium_plot(data):
     m = folium.Map(location=[42.75, -76], zoom_start=7)
+    county_js = dill.load(open('static/county_js_ny.pkd','rb'))
+
 
     choropleth = folium.Choropleth(
         geo_data=county_js,
@@ -128,7 +130,6 @@ def index():
     data_adjust_vax = pd.read_csv('static/data_adjust_vax.csv')
     data_by_county = pd.read_csv('static/data.csv')
 
-    county_js = dill.load(open('static/county_js_ny.pkd','rb'))
     cutoff_plot = get_cutoff_plot(data_by_county)
     orig_plot = get_folium_plot(class_data)
 
