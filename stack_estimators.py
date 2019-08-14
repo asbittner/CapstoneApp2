@@ -1,3 +1,9 @@
+import pandas as pd
+import numpy as np
+import pickle
+import dill
+from sklearn import base
+
 class stack_estimators(base.BaseEstimator, base.TransformerMixin):
     
     def __init__(self, estimator1, estimator2):
