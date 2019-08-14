@@ -120,29 +120,28 @@ class stack_estimators(base.BaseEstimator, base.TransformerMixin):
         X2 = np.vstack((X.T, self.estimator1.predict(X))).T
         return self.estimator2.predict(X2)
 
+class_data = pd.read_csv('static/class_data.csv')
+class_data['Pred'] = class_data['Risk Level']
+data_adjust_vax = pd.read_csv('static/data_adjust_vax.csv')
+data_by_county = pd.read_csv('static/data.csv')
 
+cutoff_plot = get_cutoff_plot(data_by_county)
+orig_plot = get_folium_plot(class_data)
+
+new_df = pd.DataFrame(get_new_rows(data_adjust_vax), columns = list(data_adjust_vax.columns))
+new_df['Pred'] = model.predict(np.array(new_df[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']]))
+
+plot_dict = get_plot_dict(data_adjust_vax, model)
+
+model = pickle.load(open('static/finalized_model.sav', 'rb'))
+folium_map = orig_plot
+folium_map.save('static/htmls/map.html')
+cutoff_plot = get_cutoff_plot(data_by_county)
+    
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    class_data = pd.read_csv('static/class_data.csv')
-    class_data['Pred'] = class_data['Risk Level']
-    data_adjust_vax = pd.read_csv('static/data_adjust_vax.csv')
-    data_by_county = pd.read_csv('static/data.csv')
-
-    cutoff_plot = get_cutoff_plot(data_by_county)
-    orig_plot = get_folium_plot(class_data)
-
-    new_df = pd.DataFrame(get_new_rows(data_adjust_vax), columns = list(data_adjust_vax.columns))
-    new_df['Pred'] = model.predict(np.array(new_df[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']]))
-
-    plot_dict = get_plot_dict(data_adjust_vax, model)
-    
-    
-    model = pickle.load(open('static/finalized_model.sav', 'rb'))
-    folium_map = orig_plot
-    folium_map.save('static/htmls/map.html')
-    cutoff_plot = get_cutoff_plot(data_by_county)
     script,div = bke.components(cutoff_plot)
     risk_map = get_risk_plot('ROCKLAND')
     script2,div2 = bke.components(risk_map)
