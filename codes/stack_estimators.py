@@ -3,6 +3,12 @@ import numpy as np
 import pickle
 import dill
 from sklearn import base
+from sklearn.preprocessing import StandardScaler
+
+data_by_county = pd.read_csv('static/data.csv')
+class_data = pd.read_csv('static/class_data.csv')
+ros = RandomOverSampler()
+all_X,all_y = ros.fit_resample(features, target)
 
 class stack_estimators(base.BaseEstimator, base.TransformerMixin):
     
@@ -26,4 +32,8 @@ class stack_estimators(base.BaseEstimator, base.TransformerMixin):
         return self.estimator2.predict(X2)
     
 def LoadModel():
-    return pickle.load(open('static/finalized_model.sav', 'rb'))
+    est_1 = pickle.load(open('static/rf.sav', 'rb'))
+    est_2 = pickle.load(open('static/lr.sav', 'rb'))
+    model = Pipeline([('scale', StandardScaler()),('est',stack_estimators(est_1,est_2))])
+    model.fit(all_X, all_y)
+    return model
