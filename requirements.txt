@@ -8,5 +8,6 @@ pickleshare==0.7.5
 scikit-learn==0.21.2
 gunicorn>=19.9.0
 Jinja2>=2.10.1
+imblearn==0.0
 tornado
 pip
