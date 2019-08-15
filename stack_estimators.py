@@ -24,3 +24,6 @@ class stack_estimators(base.BaseEstimator, base.TransformerMixin):
     def predict(self, X):
         X2 = np.vstack((X.T, self.estimator1.predict(X))).T
         return self.estimator2.predict(X2)
+    
+def LoadModel():
+    return pickle.load(open('static/finalized_model.sav', 'rb'))
