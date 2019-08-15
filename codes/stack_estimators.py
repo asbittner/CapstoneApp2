@@ -5,6 +5,7 @@ import dill
 from sklearn import base
 from sklearn.preprocessing import StandardScaler
 from imblearn.over_sampling import RandomOverSampler
+from sklearn.pipeline import Pipeline
 
 class_data = pd.read_csv('static/class_data.csv')
 features = np.array(class_data[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']])
