@@ -31,7 +31,7 @@ def get_cutoff_plot(data_by_county):
     l_2 = len(risk_2['Avg Cases'].values)
     l_3 = len(risk_3['Avg Cases'].values)
 
-    p = bk.figure(title = 'Number of Cases of Vaccine Preventable Diseases per 100,000',plot_width = 500, plot_height = 250,background_fill_alpha = 0.75)
+    p = bk.figure(title = 'Number of Cases of Vaccine Preventable Diseases per 100,000',plot_width = 800, plot_height = 400,background_fill_alpha = 0.75)
     p.circle(range(l_0), risk_0['Avg Cases'].values, color = 'green', legend = 'risk level 0')
     p.circle(range(l_0, l_0+l_1), risk_1['Avg Cases'].values, color = '#FEE300', legend = 'risk level 1')
     p.circle(range(l_0+l_1, l_0+l_1+l_2), risk_2['Avg Cases'].values, color = 'orange', legend = 'risk level 2')
@@ -124,7 +124,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     script,div = bke.components(cutoff_plot)
-    risk_map = get_risk_plot('ALBANY')
+    risk_map = get_risk_plot('ROCKLAND')
     script2,div2 = bke.components(risk_map)
     return render_template('index_folium.html', script = script, div = div, script2 = script2, div2 = div2)
     #return render_template('test.html', script = script, div = div, script2 = script2, div2 = div2)
