@@ -6,8 +6,9 @@ from sklearn import base
 from sklearn.preprocessing import StandardScaler
 from imblearn.over_sampling import RandomOverSampler
 
-data_by_county = pd.read_csv('static/data.csv')
 class_data = pd.read_csv('static/class_data.csv')
+features = np.array(class_data[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']])
+target = np.array(class_data['Risk Level'])
 ros = RandomOverSampler()
 all_X,all_y = ros.fit_resample(features, target)
 
