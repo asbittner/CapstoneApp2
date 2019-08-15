@@ -4,6 +4,7 @@ import pickle
 import dill
 from sklearn import base
 from sklearn.preprocessing import StandardScaler
+from imblearn.over_sampling import RandomOverSampler
 
 data_by_county = pd.read_csv('static/data.csv')
 class_data = pd.read_csv('static/class_data.csv')
