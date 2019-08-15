@@ -77,26 +77,48 @@ def get_folium_plot(data):
 )
     return m
     
-def get_plot_dict(data, model):
-    d = {}
+# def get_plot_dict(data, model):
+#     d = {}
+#     data = data.set_index('County')
+#     for county in data.index:
+#         d[county] = {}
+#         for i in range(11):
+#             df = data.copy()
+#             key = i*10000
+#             df.loc[county, 'Known Unvax per 100,000'] = key
+#             df['Pred'] = model.predict(np.array(df[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']]))
+#             d[county][key] = df.reset_index()
+#             
+#     county_plots = {}
+#     for county in d.keys():
+#         county_plots[county] = {}
+#         for i in d[county].keys():
+#             df = d[county][i]
+#             county_plots[county][i] = get_folium_plot(df)  
+#     return county_plots
+    
+# def get_map_dict(data, model, county):
+#     d = {}
+#     data = data.set_index('County')
+#     for i in range(11):
+#         df = data.copy()
+#         key = i*10000
+#         df.loc[county, 'Known Unvax per 100,000'] = key
+#         df['Pred'] = model.predict(np.array(df[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']]))
+#         d[key] = df.reset_index()
+#             
+#     county_plots = {}
+#     for i in d.keys():
+#         df = d[i]
+#         county_plots[county][i] = get_folium_plot(df)  
+#     return county_plots
+
+def get_map(county, unvax, data, model):
     data = data.set_index('County')
-    for county in data.index:
-        d[county] = {}
-        for i in range(11):
-            df = data.copy()
-            key = i*10000
-            df.loc[county, 'Known Unvax per 100,000'] = key
-            df['Pred'] = model.predict(np.array(df[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']]))
-            d[county][key] = df.reset_index()
-            
-    county_plots = {}
-    for county in d.keys():
-        county_plots[county] = {}
-        for i in d[county].keys():
-            df = d[county][i]
-            county_plots[county][i] = get_folium_plot(df)
-            
-    return county_plots
+    df = data.copy()
+    df.loc[county, 'Known Unvax per 100,000'] = unvax
+    df['Pred'] = model.predict(np.array(df[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']]))
+    return get_folium_plot(df)
 
 from codes.stack_estimators import *
 
@@ -113,7 +135,7 @@ model = LoadModel()
 new_df = pd.DataFrame(get_new_rows(data_adjust_vax), columns = list(data_adjust_vax.columns))
 new_df['Pred'] = model.predict(np.array(new_df[['Ratio Int Travelers', 'Known Unvax per 100,000', 'Population Density','Latitude','Longitude']]))
 
-plot_dict = get_plot_dict(data_adjust_vax, model)
+# plot_dict = get_plot_dict(data_adjust_vax, model)
 
 folium_map = orig_plot
 folium_map.save('static/htmls/map.html')
@@ -137,7 +159,7 @@ def interactive_plot():
     else:
         c = str(request.form.get("county", None))
         u = int(request.form.get("unvax", None))
-        folium_map = plot_dict[c][u]
+        folium_map = get_map(c,u,data_adjust_vax,model)
         risk_map = get_risk_plot(c)
     
     folium_map.save('static/htmls/map.html')
