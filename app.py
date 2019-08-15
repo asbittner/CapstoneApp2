@@ -98,7 +98,7 @@ def get_plot_dict(data, model):
             
     return county_plots
 
-from stack_estimators import stack_estimators, LoadModel
+from codes.stack_estimators import *
 
 class_data = pd.read_csv('static/class_data.csv')
 class_data['Pred'] = class_data['Risk Level']
