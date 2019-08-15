@@ -287,21 +287,22 @@ http://www.tooplate.com/view/2089-meteor
   <input type="submit" value = "submit">
 </form>
 
+        <div>
+        <div align="center">
+<!--         <iframe src="{{url_for('static', filename='htmls/map.html')}}" style="height: 600px; width:750px" frameborder="0" align="middle-right"> </iframe> -->
+        <iframe src="/static/htmls/map.html" style="height: 600px; width:750px" frameborder="0" align="middle-right"> </iframe>      
+        </div>
+        <div align = 'center'>
+        {{ script2|safe }}
+        {{ div2|safe }}
+        </div>
+        </div>
+    </div>
+    
                     </div>
                 </div>
             </div>
         </div>
-        <div>
-        <p align="center">
-<!--         <iframe src="{{url_for('static', filename='htmls/map.html')}}" style="height: 600px; width:750px" frameborder="0" align="middle-right"> </iframe> -->
-        <iframe src="/static/htmls/map.html" style="height: 600px; width:750px" frameborder="0" align="middle-right"> </iframe>      
-        </p>
-        <p align="right">
-        {{ script2|safe }}
-        {{ div2|safe }}
-        </p>
-        </div>
-    </div>
 
     <div id="contact" class="page-section">
         <div class="container">
