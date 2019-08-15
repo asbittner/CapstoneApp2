@@ -35,8 +35,11 @@ class stack_estimators(base.BaseEstimator, base.TransformerMixin):
         return self.estimator2.predict(X2)
     
 def LoadModel():
+    #est_1 = pickle.load(open('static/rf.sav', 'rb'))
+    #est_2 = pickle.load(open('static/lr.sav', 'rb'))
     est_1 = pickle.load(open('static/rf.sav', 'rb'))
     est_2 = pickle.load(open('static/lr.sav', 'rb'))
-    model = Pipeline([('scale', StandardScaler()),('est',stack_estimators(est_1,est_2))])
-    model.fit(all_X, all_y)
+    scalar = pickle.load(open('static/scale.sav', 'rb'))
+    model = Pipeline([('scale', scalar),('est',stack_estimators(est_1,est_2))])
+    #model.fit(all_X, all_y)
     return model
