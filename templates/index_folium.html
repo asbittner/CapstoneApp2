@@ -49,9 +49,11 @@ http://www.tooplate.com/view/2089-meteor
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="#" class="scroll-top">Home</a></li>
-                        <li><a href="#" class="scroll-link" data-id="about">App</a></li>
-                        <li><a href="#" class="scroll-link" data-id="portfolio">Data</a></li>
-                        <li><a href="#" class="scroll-link" data-id="blog">Something?</a></li>
+                        <li><a href="#" class="scroll-link" data-id="what-we-do">Model</a></li>
+                        <li><a href="#" class="scroll-link" data-id="blog">App</a></li>
+<!-- 
+                        <li><a href="#" class="scroll-link" data-id="data">Data</a></li>
+ -->
                         <li><a href="#" class="scroll-link" data-id="contact">About Me</a></li>
                     </ul>
                 </div>
@@ -74,14 +76,14 @@ http://www.tooplate.com/view/2089-meteor
                         <h2>Alyson Bittner</h2>
                         <p>Identifying areas in New York State that are at high risk for cases of Measles.</p>
                         <div class="primary-button">
-                            <a href="#" class="scroll-link" data-id="about">Discover More</a>
+                            <a href="#" class="scroll-link" data-id="intro">Discover More</a>
                         </div>                           
                     </div>                   
                 </div> <!-- .cd-full-width -->
             </li>
     </section> <!-- .cd-hero -->
 
-    <div id="model" class="page-section">
+    <div id="intro" class="page-section">
         <div class="content-wrapper">
             <div class="inner-container container">
                         
@@ -90,29 +92,30 @@ http://www.tooplate.com/view/2089-meteor
                         <div class="section-heading">
                             <h4>Introduction</h4>
                             <div class="line-dec"></div>
+                            <br />
                         </div>
                     </div>
                 </div>
             <div class="row">
-                 <div class="col-md-3 col-sm-6 col-xs-12">
+                 <div class="col-md-4 col-sm-7 col-xs-13">
                     <div class="service-item second-service">
                         <div class="icon"></div>
                         <h4>Then</h4>
                         <p>Measles was declared eradicated from the United States in the year 2000.</p>
                     </div>
                 </div>
-                 <div class="col-md-3 col-sm-6 col-xs-12">
+                 <div class="col-md-4 col-sm-7 col-xs-13">
                     <div class="service-item third-service">
                         <div class="icon"></div>
                         <h4>Now</h4>
                         <p>In 2019, there have been 1123 cases of measles in the United States.</p>
                     </div>
                 </div>
-                 <div class="col-md-3 col-sm-6 col-xs-12">
+                 <div class="col-md-4 col-sm-7 col-xs-13">
                     <div class="service-item fourth-service">
                         <div class="icon"></div>
                         <h4>Cause</h4>
-                        <p>Unvaccinated travelers brought measles from countries where measles were present</p>
+                        <p>Unvaccinated travelers brought measles from other countries into the U.S.</p>
                     </div>
                 </div>                
             
@@ -120,20 +123,22 @@ http://www.tooplate.com/view/2089-meteor
         </div>
     </div>
 
+<!-- 
     <div id="what-we-do">
         <div class="container">
             <div class="row">
                 
                 <div class="col-md-3">
                     <div class="row">
-                        <h4>The model<br></h4>
-                        <p>is a classification model determines risk levels based on the number of cases of Measles and Meningitis per Capita.</p>
-                        <p align="center">
-
+                        <h4>The model</h4>
+                        <p>is a classification model </p>
+                    <div class="col-md-6">
+                    <div class="right-image">
                         {{ script|safe }}
                         {{ div|safe }}
-                        </p>
-                        <!--
+                 </div>
+                </div>
+                        <!~~
                         <ul>
                             <li>
                                 <div class="white-button">
@@ -146,7 +151,7 @@ http://www.tooplate.com/view/2089-meteor
                                 </div>
                             </li>
                         </ul>
-                        -->
+                        ~~>
                     </div>
                 </div>
                 
@@ -158,6 +163,27 @@ http://www.tooplate.com/view/2089-meteor
             </div>
         </div>
     </div>
+ -->
+ 
+ <div id="what-we-do">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="left-text">
+                        <h4>The Model</h4>
+                        <p>is a classification model ....<br> manual line breaks</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="right-image">
+                        {{ script|safe }}
+                        {{ div|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
 
 
     <div id="blog" class="page-section">
@@ -165,7 +191,7 @@ http://www.tooplate.com/view/2089-meteor
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h4>Interactive Model</h4>
+                        <h4>Interactive Map</h4>
                         <div class="line-dec"></div>
 
 <form method='post' action = 'interactive_plot'>
